@@ -1,3 +1,59 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+/* Custom Scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #003049;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #001a2e;
+}
+
+/* Ensure the body takes full height and flex layout */
+body {
+  display: flex;
+  min-height: 100vh; /* Use min-height to ensure it takes full viewport height */
+  margin: 0;
+  padding: 0;
+}
+
+/* Adjust main content area to account for fixed sidebar */
+.flex-1.pl-40 {
+  padding-left: calc(7rem + 2rem); /* Width of sidebar (w-28 = 7rem) + left margin (ml-20 original, now pl-40 for consistency) + some padding */
+  /* Replaced ml-20 with pl-40 to ensure content starts after sidebar */
+  flex: 1; /* Allow main content to take remaining space */
+  display: flex;
+  flex-direction: row; /* Ensure flex items (item list and order list) are side-by-side */
+}
+
+/* Adjust item list to enable scroll only when content overflows */
+#itemsList {
+  /* Remove fixed height (max-h-96) to allow content to dictate height initially */
+  /* flex-1 already handles vertical space filling */
+  overflow-y: auto; /* Enable vertical scroll when content overflows */
+}
+
+/* Adjust order list to be fixed and handle its own scrolling */
+.w-96.ml-8.flex.flex-col {
+  height: calc(100vh - 4rem); /* Full viewport height minus top/bottom padding of body (p-8) */
+  position: sticky; /* Make it sticky */
+  top: 2rem; /* Align with the top padding of the main content area */
+  /* The fixed position was removed to use sticky, which is better for content flow */
+  /* Remove flex-shrink-0 if it was there, to allow it to shrink if needed, or keep it to maintain width */
+}
+
+#orderItems {
+  flex: 1; /* Allow order items to grow and take available space */
+  overflow-y: auto; /* Enable scroll for order items when content overflows */
+}
