@@ -28,6 +28,14 @@ body {
   padding: 0;
 }
 
+/* Style for Sidebar */
+/* Hover effect */
+.hover-effect:hover img,
+          .hover-effect:hover p {
+            /* fallback for browsers without group-hover support */
+            transform: scale(1.1);
+            transition-delay: 0.1s;
+          }
 /* Adjust main content area to account for fixed sidebar */
 .flex-1.pl-40 {
   padding-left: calc(7rem + 2rem); /* Width of sidebar (w-28 = 7rem) + left margin (ml-20 original, now pl-40 for consistency) + some padding */
