@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 /* Custom Scrollbar for Webkit browsers (Chrome, Safari, Edge) */
 .custom-scrollbar::-webkit-scrollbar {
   width: 8px;
@@ -12,56 +13,65 @@
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-  background: #003049;
+  background: #003049; /* primary color */
   border-radius: 10px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-  background: #001a2e;
+  background: #001a2e; /* darker primary */
 }
 
 /* Ensure the body takes full height and flex layout */
 body {
   display: flex;
-  min-height: 100vh; /* Use min-height to ensure it takes full viewport height */
+  min-height: 100vh;
   margin: 0;
   padding: 0;
 }
 
-/* Style for Sidebar */
-/* Hover effect */
+/* Style for Sidebar Hover effect */
 .hover-effect:hover img,
-          .hover-effect:hover p {
-            /* fallback for browsers without group-hover support */
-            transform: scale(1.1);
-            transition-delay: 0.1s;
-          }
+.hover-effect:hover p {
+  transform: scale(1.1);
+  transition-delay: 0.1s;
+}
+
 /* Adjust main content area to account for fixed sidebar */
 .flex-1.pl-40 {
-  padding-left: calc(7rem + 2rem); /* Width of sidebar (w-28 = 7rem) + left margin (ml-20 original, now pl-40 for consistency) + some padding */
-  /* Replaced ml-20 with pl-40 to ensure content starts after sidebar */
-  flex: 1; /* Allow main content to take remaining space */
+  padding-left: calc(7rem + 2rem); /* Width of sidebar (w-28 = 7rem) + default pl-8 (2rem) */
+  flex: 1;
   display: flex;
-  flex-direction: row; /* Ensure flex items (item list and order list) are side-by-side */
+  flex-direction: column; /* Changed to column for product page layout, main content then tabs */
 }
 
-/* Adjust item list to enable scroll only when content overflows */
+/* Adjust item list in transactions page to enable scroll only when content overflows */
 #itemsList {
-  /* Remove fixed height (max-h-96) to allow content to dictate height initially */
-  /* flex-1 already handles vertical space filling */
-  overflow-y: auto; /* Enable vertical scroll when content overflows */
+  overflow-y: auto;
 }
 
-/* Adjust order list to be fixed and handle its own scrolling */
-.w-96.ml-8.flex.flex-col {
+/* Adjust order list in transactions page to be fixed and handle its own scrolling */
+/* This specific class targets the order list on the transaction page, not generic for all pages */
+.order-list-fixed-height { /* Specific class added to the div in transactions.html */
   height: calc(100vh - 4rem); /* Full viewport height minus top/bottom padding of body (p-8) */
-  position: sticky; /* Make it sticky */
-  top: 2rem; /* Align with the top padding of the main content area */
-  /* The fixed position was removed to use sticky, which is better for content flow */
-  /* Remove flex-shrink-0 if it was there, to allow it to shrink if needed, or keep it to maintain width */
+  position: sticky;
+  top: 2rem;
+  /* Ensure the order list scrolls independently if its content overflows */
+  display: flex;
+  flex-direction: column;
 }
 
-#orderItems {
-  flex: 1; /* Allow order items to grow and take available space */
-  overflow-y: auto; /* Enable scroll for order items when content overflows */
+#orderItems { /* This is for the order items list inside the order list section */
+  flex: 1;
+  overflow-y: auto;
 }
+
+
+/* button update, all, product */
+.tab-button.active {
+        background-color: #003049; /* primary */
+        color: #FFFFFF; /* secondary */
+      }
+      .tab-button:not(.active) {
+        background-color: #EAEAEA; /* gray-custom */
+        color: #003049; /* primary */
+      }

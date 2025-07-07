@@ -3,8 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SimplePOS</title>
-    <link rel="stylesheet" href="/css/input.css" />
+    <title>SimplePOS - Products</title>
+    
+    <link rel="stylesheet" href="./css/input.css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -19,6 +20,7 @@
         },
       };
     </script>
+    <style></style>
   </head>
 
   <body class="bg-gray-custom min-h-screen flex">
@@ -30,13 +32,12 @@
         <div
           class="w-15 h-15 bg-secondary rounded-lg flex items-center justify-center"
         >
-          <!-- Icon Aplikasi -->
           <img src="./assets/icon.svg " alt="Logo" class="w-30 h-30" />
         </div>
       </div>
 
       <nav class="flex flex-col gap-4">
-        <!-- Icon Home -->
+        <!-- icon Home -->
         <a href="./index.html">
           <div
             class="h-12 bg-transparent rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-secondary/20 transition-colors py-12 group hover-effect"
@@ -53,11 +54,11 @@
             </p>
           </div>
         </a>
-        <!-- end icon Products -->
-        <!-- Icon new Order -->
+        <!-- end icon Home -->
+         <!-- Icon Transaction -->
         <a href="./transactions.html">
           <div
-            class="h-12 bg-secondary rounded-lg flex flex-col items-center justify-center cursor-pointer py-12 group hover-effect"
+           class="h-12 bg-transparent rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-secondary/20 transition-colors py-12 group hover-effect"
           >
             <img
               src="./assets/shopping-cart.svg"
@@ -71,12 +72,11 @@
             </p>
           </div>
         </a>
-        <!-- end icon new Order -->
-
-        <!-- Icon Products -->
+        <!-- end icon Transaction-->
+         <!-- Icon Products -->
         <a href="./products.html">
           <div
-            class="h-12 bg-transparent rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-secondary/20 transition-colors py-12 group hover-effect"
+            class="h-12 bg-transparent  rounded-lg flex flex-col items-center justify-center cursor-pointer py-12 group hover-effect"
           >
             <img
               src="./assets/shopping-bag.svg"
@@ -90,9 +90,8 @@
             </p>
           </div>
         </a>
-        <!-- end icon Products -->
-
-        <!-- Icon Setting -->
+        <!-- end Icon Products -->
+       <!-- Icon Setting -->
         <a href="">
           <div
             class="h-12 bg-secondary rounded-lg flex flex-col items-center justify-center cursor-pointer py-12 group hover-effect"
@@ -112,60 +111,226 @@
         <!-- end Icon setting -->
       </nav>
     </div>
-    <!-- end sidebar navigation -->
-    <!-- Product Page Section -->
-    <div class="flex-1 pl-40 pr-8 pt-8 pb-8 flex">
-      <div class="flex-1 flex flex-col">
-        <div class="mb-8">
-          <div class="flex items-center justify-between">
-            <div>
-              <h1 class="text-4xl font-bold text-primary mb-2">Product Page</h1>
-              <p class="text-primary/70" id="datetime"></p>
-            </div>
-            <div class="mb-8">
-              <div class="flex items-center justify-between">
-                <div class="flex gap-6">
-                 <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
-                    <div class="text-2xl font-bold">All Products</div>
-                  </div>
-                  <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
-                    <div
-                      class="text-2xl font-bold justify-center items-center flex"
-                    >
-                      
-                    </div>
-                    <div class="text-sm opacity-80">Total Orders</div>
-                  </div>
-                  <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
-                    <div class="text-2xl font-bold flex justify-center">-</div>
-                    <div class="text-sm opacity-80">Walk-ins</div>
-                  </div>
-                  <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
-                    <div class="text-2xl font-bold justify-center flex">-</div>
-                    <div class="text-sm opacity-80">Online Orders</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            <div class="flex gap-6"></div>
-             
+    <!-- end side navbar -->
+    <div class="flex-1 pl-40 pr-8 pt-8 pb-8 flex flex-col">
+      <div class="mb-8">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-4xl font-bold text-primary mb-2">Product Page</h1>
+            <p class="text-primary/70" id="datetime"></p>
           </div>
-        </div>
 
-        <div class="flex-1 flex flex-col">
-          <h2 class="text-2xl font-bold text-primary mb-6">Items List</h2>
-          <div class="flex-1 items-list-wrapper">
-            <div
-              class="grid grid-cols-6 gap-4 custom-scrollbar"
-              id="itemsList"
-            ></div>
+          <div class="flex gap-6">
+            <button
+              id="tab-all-products"
+              class="tab-button px-6 py-4 rounded-lg text-lg font-semibold transition-colors active"
+              data-tab="all-products"
+            >
+              All Products
+            </button>
+            <button
+              id="tab-new-product"
+              class="tab-button px-6 py-4 rounded-lg text-lg font-semibold transition-colors"
+              data-tab="new-product"
+            >
+              New Product
+            </button>
+            <button
+              id="tab-update-product"
+              class="tab-button px-6 py-4 rounded-lg text-lg font-semibold transition-colors"
+              data-tab="update-product"
+            >
+              Update/Delete Product
+            </button>
           </div>
         </div>
       </div>
-      <!-- end order list Section -->
+
+      <div class="flex-1 bg-secondary rounded-lg p-6 shadow-lg flex flex-col">
+        <div
+          id="content-all-products"
+          class="tab-content active flex-1 overflow-y-auto custom-scrollbar"
+        >
+          <h2 class="text-2xl font-bold text-primary mb-6">
+            All Products List
+          </h2>
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+            id="allProductsList"
+          ></div>
+        </div>
+
+        <div id="content-new-product" class="tab-content hidden flex-1">
+          <h2 class="text-2xl font-bold text-primary mb-6">Add New Product</h2>
+          <form id="newProductForm" class="space-y-4 max-w-lg">
+            <div>
+              <label
+                for="sku"
+                class="block text-primary text-lg font-semibold mb-2"
+                >SKU:</label
+              >
+              <input
+                type="text"
+                id="new-sku"
+                name="sku"
+                class="w-full p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="product_name"
+                class="block text-primary text-lg font-semibold mb-2"
+                >Product Name:</label
+              >
+              <input
+                type="text"
+                id="new-product_name"
+                name="product_name"
+                class="w-full p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+              />
+            </div>
+            <div>
+              <label
+                for="product_price"
+                class="block text-primary text-lg font-semibold mb-2"
+                >Price:</label
+              >
+              <input
+                type="number"
+                id="new-product_price"
+                name="product_price"
+                class="w-full p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+                min="0"
+              />
+            </div>
+            <div>
+              <label
+                for="product_stock"
+                class="block text-primary text-lg font-semibold mb-2"
+                >Stock:</label
+              >
+              <input
+                type="number"
+                id="new-product_stock"
+                name="product_stock"
+                class="w-full p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                required
+                min="0"
+              />
+            </div>
+            <button
+              type="submit"
+              class="bg-primary text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+            >
+              Add Product
+            </button>
+          </form>
+        </div>
+
+        <div id="content-update-product" class="tab-content hidden flex-1">
+          <h2 class="text-2xl font-bold text-primary mb-6">
+            Update / Delete Product
+          </h2>
+          <div class="space-y-4 max-w-lg">
+            <div>
+              <label
+                for="update-sku-search"
+                class="block text-primary text-lg font-semibold mb-2"
+                >Search by SKU:</label
+              >
+              <div class="flex gap-2">
+                <input
+                  type="text"
+                  id="update-sku-search"
+                  placeholder="Enter SKU"
+                  class="flex-1 p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+                <button
+                  id="searchProductButton"
+                  class="bg-primary text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-primary/80 transition-colors"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+
+            <form
+              id="updateProductForm"
+              class="space-y-4 border-t pt-4 border-gray-custom hidden"
+            >
+              <h3 class="text-xl font-bold text-primary">
+                Product Details: <span id="currentProductSku"></span>
+              </h3>
+              <div>
+                <label
+                  for="update-product_name"
+                  class="block text-primary text-lg font-semibold mb-2"
+                  >Product Name:</label
+                >
+                <input
+                  type="text"
+                  id="update-product_name"
+                  name="product_name"
+                  class="w-full p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                />
+              </div>
+              <div>
+                <label
+                  for="update-product_price"
+                  class="block text-primary text-lg font-semibold mb-2"
+                  >Price:</label
+                >
+                <input
+                  type="number"
+                  id="update-product_price"
+                  name="product_price"
+                  class="w-full p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label
+                  for="update-product_stock"
+                  class="block text-primary text-lg font-semibold mb-2"
+                  >Stock:</label
+                >
+                <input
+                  type="number"
+                  id="update-product_stock"
+                  name="product_stock"
+                  class="w-full p-3 border border-gray-custom rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"
+                  min="0"
+                />
+              </div>
+              <div class="flex gap-4">
+                <button
+                  type="submit"
+                  class="bg-blue-600 text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
+                >
+                  Update Product
+                </button>
+                <button
+                  type="button"
+                  id="deleteProductButton"
+                  class="bg-red-600 text-secondary px-6 py-3 rounded-lg font-semibold hover:bg-red-700 transition-colors"
+                >
+                  Delete Product
+                </button>
+              </div>
+            </form>
+            <div
+              id="productNotFound"
+              class="hidden text-red-600 font-semibold mt-4"
+            >
+              Product not found.
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- end Order page Section -->
     <script src="products.js"></script>
   </body>
 </html>

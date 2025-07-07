@@ -3,10 +3,150 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SimplePOS</title>
+    <title>SimplePOS - Home</title>
     <link rel="stylesheet" href="./css/output.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#003049",
+              secondary: "#FFFFFF",
+              "gray-custom": "#EAEAEA",
+            },
+          },
+        },
+      };
+    </script>
   </head>
-  <body class="bg-red-100 text-gray-900 min-h-screen">
-    <p>masih di develop</p>
+
+  <body class="bg-gray-custom min-h-screen flex">
+    <div
+      class="fixed left-4 top-4 bottom-4 w-28 bg-secondary flex flex-col items-center py-6 z-50 rounded-3xl"
+    >
+      <div class="mb-8">
+        <div
+          class="w-15 h-15 bg-secondary rounded-lg flex items-center justify-center"
+        >
+          <img src="./assets/icon.svg " alt="Logo" class="w-30 h-30" />
+        </div>
+      </div>
+
+      <nav class="flex flex-col gap-4">
+        <!-- icon Home -->
+        <a href="./index.html">
+          <div
+            class="h-12 bg-transparent rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-secondary/20 transition-colors py-12 group hover-effect"
+          >
+            <img
+              src="./assets/home.svg"
+              alt="logo home"
+              class="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+            />
+            <p
+              class="text-sm transition-transform duration-300 group-hover:scale-110"
+            >
+              Home
+            </p>
+          </div>
+        </a>
+        <!-- end icon Home -->
+         <!-- Icon Transaction -->
+        <a href="./transactions.html">
+          <div
+           class="h-12 bg-transparent rounded-lg flex flex-col items-center justify-center cursor-pointer hover:bg-secondary/20 transition-colors py-12 group hover-effect"
+          >
+            <img
+              src="./assets/shopping-cart.svg"
+              alt="logo order"
+              class="w-10 h-10 transition-transform duration-300 group-hover:scale-110 pr-1"
+            />
+            <p
+              class="text-sm transition-transform duration-300 group-hover:scale-110"
+            >
+              transaction
+            </p>
+          </div>
+        </a>
+        <!-- end icon Transaction-->
+         <!-- Icon Products -->
+        <a href="./products.html">
+          <div
+            class="h-12 bg-transparent  rounded-lg flex flex-col items-center justify-center cursor-pointer py-12 group hover-effect"
+          >
+            <img
+              src="./assets/shopping-bag.svg"
+              alt="logo products"
+              class="w-10 h-10 transition-transform duration-300 group-hover:scale-110"
+            />
+            <p
+              class="text-sm transition-transform duration-300 group-hover:scale-110"
+            >
+              Products
+            </p>
+          </div>
+        </a>
+        <!-- end Icon Products -->
+       <!-- Icon Setting -->
+        <a href="">
+          <div
+            class="h-12 bg-secondary rounded-lg flex flex-col items-center justify-center cursor-pointer py-12 group hover-effect"
+          >
+            <img
+              src="./assets/settings.svg"
+              alt="logo order"
+              class="w-8 h-8 mb-1 transition-transform duration-300 group-hover:scale-110"
+            />
+            <p
+              class="text-sm transition-transform duration-300 group-hover:scale-110"
+            >
+              Setting
+            </p>
+          </div>
+        </a>
+        <!-- end Icon setting -->
+        </nav>
+    </div>
+    <div class="flex-1 pl-40 pr-8 pt-8 pb-8 flex flex-col">
+      <div class="mb-8">
+        <div class="flex items-center justify-between">
+          <div>
+            <h1 class="text-4xl font-bold text-primary mb-2">Dashboard</h1>
+            <p class="text-primary/70" id="datetime"></p>
+          </div>
+
+          <div class="flex gap-6">
+            <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
+              <div class="text-2xl font-bold">Rp. -</div>
+              <div class="text-sm opacity-80">Total Revenue</div>
+            </div>
+            <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
+              <div class="text-2xl font-bold justify-center items-center flex">
+                -
+              </div>
+              <div class="text-sm opacity-80">Total Orders</div>
+            </div>
+            <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
+              <div class="text-2xl font-bold flex justify-center">-</div>
+              <div class="text-sm opacity-80">Walk-ins</div>
+            </div>
+            <div class="bg-primary text-secondary px-6 py-4 rounded-lg">
+              <div class="text-2xl font-bold justify-center flex">-</div>
+              <div class="text-sm opacity-80">Online Orders</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex-1 bg-secondary rounded-lg p-6 shadow-lg">
+        <h2 class="text-2xl font-bold text-primary mb-4">Welcome to SimplePOS!</h2>
+        <p class="text-primary/70">
+          This is your central hub for managing sales, products, and transactions.
+          Navigate through the sidebar to access different features.
+        </p>
+        </div>
+    </div>
+    <script src="home.js"></script>
   </body>
 </html>
