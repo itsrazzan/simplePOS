@@ -4,7 +4,7 @@
 
 ---
 
-## ✨ Fitur Utama
+## Fitur Utama
 
 ### Backend (Node.js + Express + MySQL)
 
@@ -27,7 +27,7 @@
 
 ---
 
-##  Cara Kerja Backend
+## Cara Kerja Backend
 
 - **Produk**:  
   Endpoint `/products` menyediakan fitur GET, POST, PUT, DELETE (soft delete) serta pencarian produk berdasarkan SKU.  
@@ -38,7 +38,7 @@
 
 ---
 
-## ⚡ Cara Kerja Frontend
+## Cara Kerja Frontend
 
 - **Produk**:  
   Halaman produk menampilkan daftar produk, form tambah produk, serta fitur update/delete produk berdasarkan SKU.
@@ -49,7 +49,7 @@
 
 ---
 
-## 🚀 Cara Menjalankan Aplikasi
+## Cara Menjalankan Aplikasi
 
 ### 1. **Clone Repository**
 
@@ -78,3 +78,9 @@ cd backend
 **menjalankan Node.js**
 - ketik `nodemon app.js` untuk menjalankan node.js
 - Aplikasi siap digunakan!!
+
+
+
+### Link Youtube Penjelasan Projek **
+- untuk penjelasan tentang projek lebih lanjut juga bisa diakses melalui video berikut 
+(https://youtu.be/pzg-FXtJt-w)
