@@ -83,4 +83,4 @@ cd backend
 
 ### Link Youtube Penjelasan Projek **
 - untuk penjelasan tentang projek lebih lanjut juga bisa diakses melalui video berikut 
-(https://youtu.be/pzg-FXtJt-w)
+[Youtube](https://youtu.be/pzg-FXtJt-w)
